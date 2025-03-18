@@ -1,4 +1,4 @@
-const checkUrl = (url, element) => 
+const checkUrl = (url, element) =>
     fetch(url, { mode: 'no-cors' })
         .then(() => (element.textContent = 'En ligne', element.classList.add('is-success')))
         .catch(() => (element.textContent = 'Hors ligne', element.classList.add('is-danger')));
@@ -24,7 +24,7 @@ const createCard = subdomain => {
     clickableElement.append(title, status);
     clickableElement.className = 'clickable';
     clickableElement.onclick = () => window.open(url, '_blank');
-    
+
     card.append(clickableElement);
     column.append(card);
     container.append(column);
@@ -39,7 +39,7 @@ const adjustLastRow = container => {
     columns.length % 3 === 2 ? columns.at(-2).classList.add('is-offset-2') : null;
 };
 
-document.addEventListener('DOMContentLoaded', () => 
+document.addEventListener('DOMContentLoaded', () =>
     fetch('https://api.sylvain.pro/latest/website')
         .then(response => response.json())
         .then(({ sub_domains }) => ['sylvain', ...sub_domains.filter(subdomain => subdomain !== 'ping')].forEach(createCard))
