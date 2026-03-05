@@ -18,7 +18,7 @@ const createCard = subdomain => {
     status.id = `status-${subdomain}`;
     status.textContent = 'Test en cours...';
 
-    const url = subdomain === 'sylvain' ? 'https://sylvain.pro' : `https://${subdomain}.sylvain.pro`;
+    const url = subdomain === 'sylvain' ? 'https://sylvain.sh' : `https://${subdomain}.sylvain.sh`;
     title.textContent = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
 
     clickableElement.append(title, status);
@@ -40,7 +40,7 @@ const adjustLastRow = container => {
 };
 
 document.addEventListener('DOMContentLoaded', () =>
-    fetch('https://api.sylvain.pro/latest/website')
+    fetch('https://api.sylvain.sh/latest/website')
         .then(response => response.json())
         .then(({ sub_domains }) => ['sylvain', ...sub_domains.filter(subdomain => subdomain !== 'ping')].forEach(createCard))
         .catch(console.error)

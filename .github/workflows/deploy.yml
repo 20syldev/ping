@@ -1,4 +1,4 @@
-name: Deploy ping.sylvain.pro
+name: Deploy ping.sylvain.sh
 
 on:
   push:
